@@ -15,4 +15,9 @@
 
     </style>
 
+    <style name="switchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">#F46236</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+    </style>
+
 </resources>

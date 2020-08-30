@@ -7,101 +7,155 @@
     android:background="@drawable/background_color"
     tools:context=".SettingsActivity">
 
-    <ImageButton
-        android:id="@+id/settings_back_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:adjustViewBounds="true"
-        android:background="#00ff0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/back_arrow" />
-
-    <TextView
-        android:id="@+id/settings"
+    <RelativeLayout
+        android:id="@+id/menu"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/borderline_bottom"
-        android:gravity="center"
-        android:text="설정"
-        android:textStyle="bold"
-        android:fontFamily="@font/system_font"
-        android:textColor="#000000"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/sound"
+
+        <ImageButton
+            android:id="@+id/settings_back_button"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back_arrow_white" />
+
+        <TextView
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/system_font"
+            android:gravity="center"
+            android:text="설정"
+            android:textColor="@color/real_white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/list1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/settings"
-        android:background="@drawable/border_line"
-        android:gravity="center_vertical"
-        android:scaleType="fitEnd"
-        android:text="  소리"
-        android:fontFamily="@font/system_font"
-        android:textColor="#000000"
-        android:textSize="30sp" />
+        android:layout_height="50dp"
+        android:layout_below="@+id/menu"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/background_item">
 
-    <TextView
-        android:id="@+id/play_list"
+        <TextView
+            android:id="@+id/sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/system_font"
+            android:gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:scaleType="fitEnd"
+            android:text="소리"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <Switch
+            android:id="@+id/switch_sound"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:checked="true"
+            android:switchMinWidth="60dp"
+            android:theme="@style/switchTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/list2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/sound"
-        android:background="@drawable/border_line"
-        android:gravity="center_vertical"
-        android:text="  놀이 목록"
-        android:fontFamily="@font/system_font"
-        android:textColor="#000000"
-        android:textSize="30sp" />
-
-    <ImageButton
-        android:id="@+id/play_list_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@id/play_list"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:background="#00ff0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/next_arrow" />
+        android:layout_height="50dp"
+        android:layout_below="@+id/list1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/background_item">
 
 
-    <ImageButton
-        android:id="@+id/app_info_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignRight="@id/app_info"
-        android:layout_alignBottom="@id/app_info"
-        android:layout_margin="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:background="#00ff0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/next_arrow" />
+        <TextView
+            android:id="@+id/play_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/system_font"
+            android:gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:text="놀이 목록"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/app_info"
+
+        <ImageButton
+            android:id="@+id/play_list_button"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/next_arrow" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/list3"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/play_list"
-        android:background="@drawable/border_line"
-        android:gravity="center_vertical"
-        android:text="  앱 정보"
-        android:fontFamily="@font/system_font"
-        android:textColor="#000000"
-        android:textSize="30sp" />
+        android:layout_height="50dp"
+        android:layout_below="@+id/list2"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/background_item">
 
-    <Switch
-        android:id="@+id/switch_sound"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignRight="@id/sound"
-        android:layout_alignBottom="@id/sound"
-        android:switchMinWidth="60dp"
-        android:thumbTint="@color/darkBlue"
-        android:trackTint="@color/darkBlue" />
+
+        <TextView
+            android:id="@+id/app_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/system_font"
+            android:gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:text="앱 정보"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/app_info_button"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/next_arrow" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
