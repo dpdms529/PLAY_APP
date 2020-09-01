@@ -45,6 +45,8 @@ class HomeActivity : AppCompatActivity() {
 
         start_button.setOnClickListener{
             start_button.isClickable = false
+            filter_button.isClickable = false
+            setting.isClickable = false
             start_button.text = "LOADING"
             start_button.textSize = 15F
             val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
@@ -83,6 +85,8 @@ class HomeActivity : AppCompatActivity() {
                 else{
                     Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
                     start_button.isClickable = true
+                    filter_button.isClickable = true
+                    setting.isClickable = true
                     start_button.text = "START"
                     start_button.textSize = 20F
                 }
@@ -110,6 +114,8 @@ class HomeActivity : AppCompatActivity() {
         if(pref.getBoolean("sound",true)) mediaPlayer2.start()
         close_button.setOnClickListener {
             start_button.isClickable = true
+            filter_button.isClickable = true
+            setting.isClickable = true
             start_button.text = "START"
             start_button.textSize = 20F
             alertDialog.cancel()
