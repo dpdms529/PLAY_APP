@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/borderline_bottom_white"
         android:fontFamily="@font/system_font"
-        android:paddingBottom="15dp"
+        android:paddingBottom="20dp"
         android:text="필터"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
