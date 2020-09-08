@@ -39,26 +39,31 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true">
 
-        <Button
-            android:id="@+id/start_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="170dp"
-            android:background="#00ff0000"
-            android:fontFamily="@font/system_font"
-            android:text="START"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
 
-        <ImageView
-            android:id="@+id/roulette"
-            android:layout_width="match_parent"
-            android:layout_height="318dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/roulette" />
+            <Button
+                android:id="@+id/start_button"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#00ff0000"
+                android:fontFamily="@font/system_font"
+                android:text="START"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/roulette"
+                android:layout_width="match_parent"
+                android:layout_height="318dp"
+                android:src="@drawable/roulette" />
+
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/tip"
