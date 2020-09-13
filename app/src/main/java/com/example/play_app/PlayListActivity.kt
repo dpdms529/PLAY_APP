@@ -18,6 +18,8 @@ import android.widget.*
 import androidx.core.widget.addTextChangedListener
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_play_list.*
 
 class PlayListActivity : AppCompatActivity() {
@@ -32,6 +34,10 @@ class PlayListActivity : AppCompatActivity() {
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
+
+        HomeActivity.mAdView = findViewById(R.id.adViewPlayList)
+        val adRequest = AdRequest.Builder().build()
+        HomeActivity.mAdView.loadAd(adRequest)
 
         var db: PlayDatabase ?= PlayDatabase.getInstance(this)
         var item = db?.playDao()?.getAll() as ArrayList<Play>

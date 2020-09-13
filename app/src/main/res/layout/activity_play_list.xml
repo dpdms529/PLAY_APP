@@ -48,9 +48,9 @@
         android:layout_height="60dp"
         android:layout_below="@id/play_list_top"
         android:layout_toRightOf="@id/list_add_btn"
+        android:fontFamily="@font/system_font"
         android:gravity="center_vertical"
         android:text="추가"
-        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="20sp" />
 
@@ -79,53 +79,62 @@
         android:adjustViewBounds="true"
         android:background="#00ff0000"
         android:scaleType="fitCenter"
-        android:src="@drawable/minus"
-        />
+        android:src="@drawable/minus" />
+
     <TextView
+        android:id="@+id/list_del"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:id="@+id/list_del"
-        android:text="삭제"
-        android:fontFamily="@font/system_font"
-        android:layout_toRightOf="@id/list_del_btn"
-        android:textColor="#000000"
-        android:textSize="20sp"
         android:layout_below="@id/play_list_top"
-        android:gravity="center_vertical"
         android:layout_marginRight="10dp"
-        />
+        android:layout_toRightOf="@id/list_del_btn"
+        android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="삭제"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/list_reset"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="초기화"
-        android:fontFamily="@font/system_font"
-        android:textSize="20sp"
-        android:layout_toRightOf="@id/reset_btn"
-        android:textColor="#000000"
         android:layout_below="@id/play_list_top"
+        android:layout_toRightOf="@id/reset_btn"
+        android:fontFamily="@font/system_font"
         android:gravity="center_vertical"
-        />
+        android:text="초기화"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
     <ImageButton
         android:id="@+id/reset_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_toRightOf="@id/list_del"
         android:layout_below="@id/play_list_top"
-        android:scaleType="fitCenter"
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/list_del"
         android:adjustViewBounds="true"
         android:background="#00ff0000"
-        android:src="@drawable/reset"
-        />
+        android:scaleType="fitCenter"
+        android:src="@drawable/reset" />
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/list_add"
-        android:choiceMode="multipleChoice"
-        />
+        android:choiceMode="multipleChoice" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adViewPlayList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#000000"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-1661288676319131/9045862808" />
+
 
 </RelativeLayout>
