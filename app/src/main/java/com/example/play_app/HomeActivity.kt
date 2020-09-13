@@ -17,15 +17,27 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     companion object
     {
         lateinit var pref: PreferenceUtil
+        lateinit var mAdView : AdView
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+
+        MobileAds.initialize(this){}
+
+        mAdView = findViewById(R.id.adViewHome)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
         pref = PreferenceUtil(applicationContext)
         pref.setBoolean("indoor",this,false)
         pref.setBoolean("outdoor",this,false)
@@ -35,9 +47,6 @@ class HomeActivity : AppCompatActivity() {
         pref.setBoolean("friend",this,false)
         pref.setBoolean("active",this,false)
         pref.setBoolean("inactive",this,false)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-
 
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
@@ -45,8 +54,13 @@ class HomeActivity : AppCompatActivity() {
         }
 
         start_button.setOnClickListener{
+            start_button.isClickable = false
+            filter_button.isClickable = false
+            setting.isClickable = false
+            start_button.text = "LOADING"
+            start_button.textSize = 15F
             val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
-            mediaPlayer1.start()
+            if(pref.getBoolean("sound",true)) mediaPlayer1.start()
             val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
@@ -78,7 +92,15 @@ class HomeActivity : AppCompatActivity() {
                 val db:PlayDatabase ?= PlayDatabase.getInstance(this)
                 val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
                 if(result!=null) showResult(result)
-                else Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
+                else{
+                    Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
+                    start_button.isClickable = true
+                    filter_button.isClickable = true
+                    setting.isClickable = true
+                    start_button.text = "START"
+                    start_button.textSize = 20F
+                }
+
             },2500)
 
         }
@@ -94,12 +116,18 @@ class HomeActivity : AppCompatActivity() {
         val view = inflater.inflate(R.layout.popup_layout,null)
         val textView: TextView = view.findViewById<TextView>(R.id.result)
         textView.text = result?.play_name
+        if(textView.text.length>7) textView.textSize = 40F
         val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)
         val mediaPlayer2 = MediaPlayer.create(this,R.raw.popup1)
-        mediaPlayer2.start()
+        if(pref.getBoolean("sound",true)) mediaPlayer2.start()
         close_button.setOnClickListener {
+            start_button.isClickable = true
+            filter_button.isClickable = true
+            setting.isClickable = true
+            start_button.text = "START"
+            start_button.textSize = 20F
             alertDialog.cancel()
         }
         alertDialog.setView(view)
@@ -183,7 +211,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(System.currentTimeMillis() - mBackWait >= 2000) {
             mBackWait = System.currentTimeMillis()
-            val toast : Toast = Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_LONG)
+            val toast : Toast = Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT)
             val group = toast.view as ViewGroup
             val msgTextView = group.getChildAt(0) as TextView
             msgTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,14f)

@@ -11,8 +11,11 @@
     <style name="introTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/intro</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
 
+    <style name="switchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">@color/pink</item>
+        <item name="colorSwitchThumbNormal">@color/real_white</item>
     </style>
 
 </resources>

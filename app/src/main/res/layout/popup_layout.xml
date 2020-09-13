@@ -29,16 +29,16 @@
         android:scaleType="fitCenter"
         android:src="@drawable/close_white" />
 
-    <ImageButton
-        android:id="@+id/share"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignRight="@id/result"
-        android:layout_alignBottom="@id/result"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="23dp"
-        android:background="#00ff0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/share_white" />
-
 </RelativeLayout>
+
+<!--<ImageButton-->
+<!--android:id="@+id/share"-->
+<!--android:layout_width="30dp"-->
+<!--android:layout_height="30dp"-->
+<!--android:layout_alignRight="@id/result"-->
+<!--android:layout_alignBottom="@id/result"-->
+<!--android:layout_marginRight="25dp"-->
+<!--android:layout_marginBottom="23dp"-->
+<!--android:background="#00ff0000"-->
+<!--android:scaleType="fitCenter"-->
+<!--android:src="@drawable/share_white" />-->

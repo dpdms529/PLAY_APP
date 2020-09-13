@@ -3,16 +3,15 @@
     <item
         android:drawable="@drawable/background_color"/>
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/logo_title" />
-    </item>
+    <item
+        android:drawable="@drawable/logo_title"
+        android:gravity="center"/>
 
-    <item>
-        <bitmap
-            android:gravity="bottom"
-            android:src="@drawable/coala_s"/>
-    </item>
+    <item
+        android:drawable="@drawable/coala"
+        android:gravity="bottom|center"
+        android:bottom="50dp"
+        android:width="49dp"
+        android:height="49dp"/>
 
 </layer-list>
