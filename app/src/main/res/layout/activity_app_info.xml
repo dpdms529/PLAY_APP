@@ -59,6 +59,7 @@
             android:fontFamily="@font/system_font"
             android:paddingStart="10dp"
             android:paddingTop="10dp"
+            android:paddingEnd="10dp"
             android:text="앱 소개"
             android:textColor="@color/darkBlue"
             android:textSize="23sp"
@@ -96,6 +97,7 @@
             android:fontFamily="@font/system_font"
             android:paddingStart="10dp"
             android:paddingTop="10dp"
+            android:paddingEnd="10dp"
             android:text="리소스 출처"
             android:textColor="@color/darkBlue"
             android:textSize="23sp"
@@ -109,6 +111,7 @@
             android:fontFamily="@font/system_font"
             android:paddingStart="10dp"
             android:paddingTop="10dp"
+            android:paddingEnd="10dp"
             android:text="- 폰트"
             android:textColor="#000000"
             android:textSize="20sp" />
@@ -121,6 +124,7 @@
             android:fontFamily="@font/system_font"
             android:paddingStart="20dp"
             android:paddingTop="10dp"
+            android:paddingEnd="20dp"
             android:text="무료글꼴 고양시 고양일산체"
             android:textColor="#272727"
             android:textSize="15sp" />
@@ -133,6 +137,7 @@
             android:fontFamily="@font/system_font"
             android:paddingStart="10dp"
             android:paddingTop="10dp"
+            android:paddingEnd="10dp"
             android:text="- 효과음"
             android:textColor="#000000"
             android:textSize="20sp" />
@@ -145,6 +150,7 @@
             android:fontFamily="@font/system_font"
             android:paddingStart="20dp"
             android:paddingTop="10dp"
+            android:paddingEnd="20dp"
             android:paddingBottom="10dp"
             android:text="www.youtube.com/watch?v=6DSgZq5j_kI"
             android:textColor="#000000"
