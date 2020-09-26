@@ -38,29 +38,17 @@ class HomeActivity : AppCompatActivity() {
         MobileAds.initialize(this){}
 
         val moveButton:Button = findViewById(R.id.moveButton)
-        moveButton.setOnClickListener(View.OnClickListener {
-            fun OnClick(view: View) {
-                when(view.id) {
-                    R.id.moveButton -> {
-                        val intent: Intent = Intent(this,TutorialActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-            }
-        })
-        val startpref : SharedPreferences = getSharedPreferences("checkFirst",Activity.MODE_PRIVATE)
-        val checkfirst : Boolean = startpref.getBoolean("checkFirst",false)
-        if(checkfirst==false) {
-            val editor:SharedPreferences.Editor = startpref.edit()
-            editor.putBoolean("checkFirst",true)
-            editor.commit()
-
-            val StartIntent :Intent = Intent(this,TutorialActivity::class.java)
-            startActivity(StartIntent)
+        moveButton.setOnClickListener() {
+            val intent: Intent = Intent(this,TutorialActivity::class.java)
+            startActivity(intent)
             finish()
+//            when(view.id) {
+//                R.id.moveButton -> {
+//                    val intent: Intent = Intent(this,TutorialActivity::class.java)
+//                    startActivity(intent)
+//                    finish()
         }
-        else {
+
             mAdView = findViewById(R.id.adViewHome)
             val adRequest = AdRequest.Builder().build()
             mAdView.loadAd(adRequest)
@@ -135,7 +123,7 @@ class HomeActivity : AppCompatActivity() {
             filter_button.setOnClickListener {
                 showFilter()
             }
-        }
+
 
 
 
