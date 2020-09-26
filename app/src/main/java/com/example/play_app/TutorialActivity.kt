@@ -5,8 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.Color.BLUE
 import android.os.Build
 import android.os.Bundle
+import android.provider.CalendarContract
 import android.text.Html
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -94,19 +96,19 @@ abstract class TutorialActivity : AppCompatActivity() {
     private fun addBottomDots(currentPage : Int) {
         val dots = arrayOfNulls<TextView>(layouts.size)
 
-        val colorsActive = getResources().getIntArray(R.array.array_dot_active)
-        val colorsInactive = getResources().getIntArray(R.array.array_dot_inactive)
+//        val colorsActive = getResources().getIntArray(R.array.array_dot_active)
+//        val colorsInactive = getResources().getIntArray(R.array.array_dot_inactive)
 
         dotsLayout.removeAllViews()
         for(i in 0..dots.size) {
             dots[i] = TextView(this)
             dots[i]?.setText(Html.fromHtml("&#8226;"))
             dots[i]?.setTextSize(TypedValue.COMPLEX_UNIT_SP,35f)
-            dots[i]?.setTextColor(colorsInactive[currentPage])
+            dots[i]?.setTextColor(Color.parseColor("#ffffff"))
             dotsLayout.addView(dots[i])
         }
         if(dots.isNotEmpty())
-            dots[currentPage]?.setTextColor(colorsActive[currentPage])
+            dots[currentPage]?.setTextColor(Color.parseColor("#000000"))
     }
     fun getItem(i : Int) : Int {
         return viewPager.currentItem + i
