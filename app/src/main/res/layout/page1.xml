@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_tutorial">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:orientation="vertical">-->
+        <TextView
+            android:id="@+id/page1_maintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="룰렛을 돌려 놀거리를 정해보세요."
+            android:fontFamily="@font/system_font"
+            android:textColor="#000000"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/page1_roulette"
+            android:layout_marginBottom="30dp"
+            android:textSize="28sp"
+            />
+        <ImageView
+            android:id="@+id/page1_roulette"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/roulette"/>
+        <TextView
+            android:id="@+id/page1_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/system_font"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*START 버튼을 누르면 룰렛이 돌아갑니다."
+        android:id="@+id/page1_ps"
+        android:textSize="20sp"
+        android:layout_below="@+id/page1_roulette"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:textColor="#BE000000"
+        android:fontFamily="@font/system_font"
+        />
+
+<!--    </LinearLayout>-->
+
+</RelativeLayout>
