@@ -1,7 +1,9 @@
 package com.example.play_app
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
@@ -10,6 +12,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager.LayoutParams.*
 import android.view.animation.AnimationUtils
@@ -34,80 +37,107 @@ class HomeActivity : AppCompatActivity() {
 
         MobileAds.initialize(this){}
 
-        mAdView = findViewById(R.id.adViewHome)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
+        val moveButton:Button = findViewById(R.id.moveButton)
+        moveButton.setOnClickListener(View.OnClickListener {
+            fun OnClick(view: View) {
+                when(view.id) {
+                    R.id.moveButton -> {
+                        val intent: Intent = Intent(this,TutorialActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+        })
+        val startpref : SharedPreferences = getSharedPreferences("checkFirst",Activity.MODE_PRIVATE)
+        val checkfirst : Boolean = startpref.getBoolean("checkFirst",false)
+        if(checkfirst==false) {
+            val editor:SharedPreferences.Editor = startpref.edit()
+            editor.putBoolean("checkFirst",true)
+            editor.commit()
 
-        pref = PreferenceUtil(applicationContext)
-        pref.setBoolean("indoor",this,false)
-        pref.setBoolean("outdoor",this,false)
-        pref.setBoolean("free",this,false)
-        pref.setBoolean("pay",this,false)
-        pref.setBoolean("alone",this,false)
-        pref.setBoolean("friend",this,false)
-        pref.setBoolean("active",this,false)
-        pref.setBoolean("inactive",this,false)
+            val StartIntent :Intent = Intent(this,TutorialActivity::class.java)
+            startActivity(StartIntent)
+            finish()
+        }
+        else {
+            mAdView = findViewById(R.id.adViewHome)
+            val adRequest = AdRequest.Builder().build()
+            mAdView.loadAd(adRequest)
 
-        setting.setOnClickListener {
-            val intent = Intent(this,SettingsActivity::class.java)
-            startActivity(intent)
+            pref = PreferenceUtil(applicationContext)
+            pref.setBoolean("indoor",this,false)
+            pref.setBoolean("outdoor",this,false)
+            pref.setBoolean("free",this,false)
+            pref.setBoolean("pay",this,false)
+            pref.setBoolean("alone",this,false)
+            pref.setBoolean("friend",this,false)
+            pref.setBoolean("active",this,false)
+            pref.setBoolean("inactive",this,false)
+
+            setting.setOnClickListener {
+                val intent = Intent(this,SettingsActivity::class.java)
+                startActivity(intent)
+            }
+
+            start_button.setOnClickListener{
+                start_button.isClickable = false
+                filter_button.isClickable = false
+                setting.isClickable = false
+                start_button.text = "LOADING"
+                start_button.textSize = 15F
+                val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
+                if(pref.getBoolean("sound",true)) mediaPlayer1.start()
+                val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
+                val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
+                roulette.startAnimation(rotate_animation)
+                Handler().postDelayed({
+                    var indoor = if(pref.getBoolean("indoor",false)) "실내" else null
+                    var outdoor = if(pref.getBoolean("outdoor",false)) "실외" else null
+                    var free = if(pref.getBoolean("free",false)) "무료" else null
+                    var pay = if(pref.getBoolean("pay",false)) "유료" else null
+                    var alone = if(pref.getBoolean("alone",false)) "혼자가능" else null
+                    var friend = if(pref.getBoolean("friend",false)) "친구필요" else null
+                    var active = if(pref.getBoolean("active",false)) "활동적" else null
+                    var inactive = if(pref.getBoolean("inactive",false)) "비활동적" else null
+                    if(indoor==null && outdoor==null){
+                        indoor = "실내"
+                        outdoor = "실외"
+                    }
+                    if(free==null && pay==null){
+                        free = "무료"
+                        pay = "유료"
+                    }
+                    if(alone==null && friend==null){
+                        alone = "혼자가능"
+                        friend = "친구필요"
+                    }
+                    if(active==null && inactive==null){
+                        active = "활동적"
+                        inactive = "비활동적"
+                    }
+                    val db:PlayDatabase ?= PlayDatabase.getInstance(this)
+                    val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
+                    if(result!=null) showResult(result)
+                    else{
+                        Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
+                        start_button.isClickable = true
+                        filter_button.isClickable = true
+                        setting.isClickable = true
+                        start_button.text = "START"
+                        start_button.textSize = 20F
+                    }
+
+                },2500)
+
+            }
+
+            filter_button.setOnClickListener {
+                showFilter()
+            }
         }
 
-        start_button.setOnClickListener{
-            start_button.isClickable = false
-            filter_button.isClickable = false
-            setting.isClickable = false
-            start_button.text = "LOADING"
-            start_button.textSize = 15F
-            val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
-            if(pref.getBoolean("sound",true)) mediaPlayer1.start()
-            val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
-            val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
-            roulette.startAnimation(rotate_animation)
-            Handler().postDelayed({
-                var indoor = if(pref.getBoolean("indoor",false)) "실내" else null
-                var outdoor = if(pref.getBoolean("outdoor",false)) "실외" else null
-                var free = if(pref.getBoolean("free",false)) "무료" else null
-                var pay = if(pref.getBoolean("pay",false)) "유료" else null
-                var alone = if(pref.getBoolean("alone",false)) "혼자가능" else null
-                var friend = if(pref.getBoolean("friend",false)) "친구필요" else null
-                var active = if(pref.getBoolean("active",false)) "활동적" else null
-                var inactive = if(pref.getBoolean("inactive",false)) "비활동적" else null
-                if(indoor==null && outdoor==null){
-                    indoor = "실내"
-                    outdoor = "실외"
-                }
-                if(free==null && pay==null){
-                    free = "무료"
-                    pay = "유료"
-                }
-                if(alone==null && friend==null){
-                    alone = "혼자가능"
-                    friend = "친구필요"
-                }
-                if(active==null && inactive==null){
-                    active = "활동적"
-                    inactive = "비활동적"
-                }
-                val db:PlayDatabase ?= PlayDatabase.getInstance(this)
-                val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
-                if(result!=null) showResult(result)
-                else{
-                    Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
-                    start_button.isClickable = true
-                    filter_button.isClickable = true
-                    setting.isClickable = true
-                    start_button.text = "START"
-                    start_button.textSize = 20F
-                }
 
-            },2500)
-
-        }
-
-        filter_button.setOnClickListener {
-            showFilter()
-        }
 
     }
 

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_play_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlayListActivity"></activity>
+        <activity android:name=".TutorialActivity"></activity>
+        <activity android:name=".PlayListActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".AppInfoActivity" />
         <activity android:name=".HomeActivity" />
@@ -23,9 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1661288676319131~9885313510"/>
+            android:value="ca-app-pub-1661288676319131~9885313510" />
     </application>
 
 </manifest>

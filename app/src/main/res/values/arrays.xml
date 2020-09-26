@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="array_dot_active">
+        <item>#00000000</item>
+        <item>#00000000</item>
+        <item>#00000000</item>
+        <item>#00000000</item>
+    </integer-array>
+
+    <integer-array name="array_dot_inactive">
+        <item>#B5000000</item>
+        <item>#B5000000</item>
+        <item>#B5000000</item>
+        <item>#B5000000</item>
+    </integer-array>
+</resources>

@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkBlue"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+        android:paddingTop="10dp">
 
 
         <ImageButton
@@ -43,77 +42,162 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/appinfo_main"
+    <RelativeLayout
+        android:id="@+id/app_introduction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_tap"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/borderline_bottom_white"
-        android:fontFamily="@font/system_font"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp"
-        android:text=" 뭐하고 놀지 랜덤으로 알려주는 앱입니다."
-        android:textColor="#000000"
-        android:textSize="20sp" />
+        android:layout_marginRight="10dp"
+        android:background="@drawable/background_item">
 
-    <TextView
-        android:id="@+id/appinfo_source"
+        <TextView
+            android:id="@+id/app_intro_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="앱 소개"
+            android:textColor="@color/darkBlue"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/app_intro_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_intro_title"
+            android:fontFamily="@font/system_font"
+            android:padding="10dp"
+            android:text=" 뭐하고 놀지 랜덤으로 알려주는 앱입니다."
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/app_source"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appinfo_main"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/system_font"
-        android:text="저작권 및 출처 표기"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/appinfo_fontsource"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appinfo_source"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/system_font"
-        android:text=" 폰트"
-        android:textColor="#000000"
-        android:textSize="23sp" />
-
-    <TextView
-        android:id="@+id/fontsource_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appinfo_fontsource"
-        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/app_introduction"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/system_font"
-        android:text=" '무료글꼴 고양시 고양일산체' 사용"
-        android:textColor="#272727"
-        android:textSize="15sp" />
+        android:layout_marginRight="10dp"
+        android:background="@drawable/background_item">
 
-    <TextView
-        android:id="@+id/appinfo_soundsource"
+        <TextView
+            android:id="@+id/app_source_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="리소스 출처"
+            android:textColor="@color/darkBlue"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/app_fontsource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_source_title"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="- 폰트"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fontsource_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_fontsource"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:text="무료글꼴 고양시 고양일산체"
+            android:textColor="#272727"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/app_soundsource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fontsource_content"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="- 효과음"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/soundsource_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_soundsource"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="www.youtube.com/watch?v=6DSgZq5j_kI"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/license"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fontsource_main"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/system_font"
-        android:text=" 효과음"
-        android:textColor="#000000"
-        android:textSize="23sp" />
-
-    <TextView
-        android:id="@+id/soundsource_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appinfo_soundsource"
-        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/app_source"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/system_font"
-        android:text=" www.youtube.com/watch?v=6DSgZq5j_kI"
-        android:textColor="#272727"
-        android:textSize="15sp" />
+        android:layout_marginRight="10dp"
+        android:background="@drawable/background_item">
+
+        <TextView
+            android:id="@+id/license_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="라이센스"
+            android:textColor="@color/darkBlue"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/license_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/license_title"
+            android:fontFamily="@font/system_font"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="@string/license"
+            android:textColor="#000000"
+            android:textSize="10sp" />
+
+
+    </RelativeLayout>
+
 
     <ImageView
         android:id="@+id/coala"
