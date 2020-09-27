@@ -10,16 +10,12 @@ import androidx.core.content.ContextCompat.getSystemService
 import com.example.play_app.TutorialActivity.Companion.layouts
 import java.security.AccessController.getContext
 
-public class PagerAdpater /*constructor(context: Context)*/ : androidx.viewpager.widget.PagerAdapter() {
+public class CustomPagerAdapter (private val mContext: Context) : androidx.viewpager.widget.PagerAdapter() {
     private lateinit var layoutinflater:LayoutInflater
-//    private val mContext:Context = context
-//    constructor(context: Context) : this() {
-//        mContext=context
-//    }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
-        layoutinflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE)
+        layoutinflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         val view: View = layoutinflater.inflate(layouts[position],container,false)
         container.addView(view)
