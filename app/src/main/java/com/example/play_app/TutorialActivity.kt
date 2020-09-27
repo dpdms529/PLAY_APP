@@ -50,7 +50,9 @@ abstract class TutorialActivity : AppCompatActivity() {
         changeStatusBarColor()
 
         val pagerAdapter:PagerAdapter
-        viewPager.adapter
+        var context = applicationContext
+        pagerAdapter=CustomPagerAdapter(context)
+        viewPager.adapter = pagerAdapter
         viewPager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
