@@ -1,4 +1,4 @@
-package com.example.play_app
+package com.coala.play_app
 
 import android.content.Context
 import android.content.Intent
@@ -15,8 +15,8 @@ import android.view.WindowManager.LayoutParams.*
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.example.play_app.db.PlayDatabase
-import com.example.play_app.db.entity.Play
+import com.coala.play_app.db.PlayDatabase
+import com.coala.play_app.db.entity.Play
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
