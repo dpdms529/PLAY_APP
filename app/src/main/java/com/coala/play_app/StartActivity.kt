@@ -1,4 +1,4 @@
-package com.example.play_app
+package com.coala.play_app
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.example.play_app.db.entity
+package com.coala.play_app.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

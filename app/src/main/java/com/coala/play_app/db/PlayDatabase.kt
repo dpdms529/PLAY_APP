@@ -1,11 +1,11 @@
-package com.example.play_app.db
+package com.coala.play_app.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.play_app.db.dao.PlayDao
-import com.example.play_app.db.entity.Play
+import com.coala.play_app.db.dao.PlayDao
+import com.coala.play_app.db.entity.Play
 
 @Database(entities = arrayOf(Play::class),version = 1)
 abstract class PlayDatabase : RoomDatabase(){

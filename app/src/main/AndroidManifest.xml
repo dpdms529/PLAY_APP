@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.play_app">
+    package="com.coala.play_app">
 
     <application
         android:allowBackup="true"
@@ -10,12 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_play_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlayListActivity"></activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".AppInfoActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name="com.coala.play_app.PlayListActivity"></activity>
+        <activity android:name="com.coala.play_app.SettingsActivity" />
+        <activity android:name="com.coala.play_app.AppInfoActivity" />
+        <activity android:name="com.coala.play_app.HomeActivity" />
         <activity
-            android:name=".StartActivity"
+            android:name="com.coala.play_app.StartActivity"
             android:theme="@style/introTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.play_app
+package com.coala.play_app
 
 import android.content.Context
 import android.graphics.Color
@@ -11,8 +11,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
-import com.example.play_app.db.PlayDatabase
-import com.example.play_app.db.entity.Play
+import com.coala.play_app.db.PlayDatabase
+import com.coala.play_app.db.entity.Play
 import android.view.WindowManager.LayoutParams.*
 
 public class MyCustomAdapter(context: Context,item : ArrayList<Play>?,db:PlayDatabase) : BaseAdapter() {

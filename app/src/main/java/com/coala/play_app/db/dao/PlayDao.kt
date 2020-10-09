@@ -1,7 +1,7 @@
-package com.example.play_app.db.dao
+package com.coala.play_app.db.dao
 
 import androidx.room.*
-import com.example.play_app.db.entity.Play
+import com.coala.play_app.db.entity.Play
 
 @Dao
 interface PlayDao {

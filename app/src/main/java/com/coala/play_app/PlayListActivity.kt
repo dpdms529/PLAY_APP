@@ -1,25 +1,19 @@
-package com.example.play_app
+package com.coala.play_app
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager.LayoutParams.*
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import android.widget.*
-import androidx.core.widget.addTextChangedListener
-import com.example.play_app.db.PlayDatabase
-import com.example.play_app.db.entity.Play
+import com.coala.play_app.db.PlayDatabase
+import com.coala.play_app.db.entity.Play
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.activity_play_list.*
 
 class PlayListActivity : AppCompatActivity() {
